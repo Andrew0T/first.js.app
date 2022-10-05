@@ -29,6 +29,7 @@ let pokemonList = [
    types: ['grass', 'poison']
   }
 ];
+
 let i = 0;
 for (let i = 0; i < 3; i++) {
     if (pokemonList[i].height >= 1.2) {
