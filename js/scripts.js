@@ -20,42 +20,46 @@ let pokemonRepository = (function(){
 
 ];
 
+//add new pokemon to pokemonList
+
+function add(pokemon) {
+  if (typeof pokemon === 'object' && 'name' in pokemon);
+  pokemonList.push(pokemon);
+}
+
+
 function getAll() {
   return pokemonList;
 }
 
-function add(pokemon) {
-  if (typeof pokemon === 'Object' && 'Name' in pokemon);
-  pokemonList.push(pokemon);
-}
+// addListItem function
 
-return {
-  add: add,
-  getAll: getAll
+function addListItem(pokemon){
+    let pokemonList = document.querySelector('.pokemon-list');
+    let listpokemon = document.createElement('li');
+    let button = document.createElement('button');
+    button.innerText = pokemon.name;
+    button.classList.add('button-class');
+    listpokemon.appendChild(button);
+    pokemonList.appendChild(listpokemon);
+    button.addEventListener('click', function(event){ 
+      console.log(addEventListener); //event Listener Added
+      return showDetails(pokemon); // showDetails function added after event Listener.
+    });
 };
 
+ // showDetails function added
+
+function showDetails(pokemon){
+    let showDetails = document.querySelector('pokemonList');    
+    console.log(pokemonList);
+};  
+
+return {
+    add: add,
+    getAll: getAll, // (,) added 
+    addListItem: addListItem, // addListItem added 
+    showDetails: showDetails // showDetails added 
+  };
+
 })();
-
-// adding another pokemon to the Array
-pokemonRepository.add({ name: 'Kangaskhan',
-    height: 2.2, 
-   types: ['normal']
-  });
-
-//print the pokemon's name, height and types in the Array.
-pokemonRepository.getAll().forEach(function(pokemon){
-    if (pokemon.height >= 1.9) {
-    document.write("<p>" + pokemon.name + "</p>" + "( is" + pokemon.height + " meters tall)" + " Wow, that is big!" + "<p>" + pokemon.types + "</p>")
-  } else if (pokemon.height <= 1.8 && pokemon.height > 1.2) {
-    document.write("<p>" + pokemon.name + "</p>" + "(is" + pokemon.height + " meters tall)" + "<p>" + pokemon.types + "</p>")
-  } else if (pokemon.height <= 1.2 && pokemon.height >= 0.8) {
-    document.write("<p>" + pokemon.name + "</p>" + "(is" + pokemon.height + " meters tall)" + "<p>" + pokemon.types + "</p>")
-  } else {
-    document.write("<p>" + pokemon.name + "</p>" + "(is" + pokemon.height + " meters tall)" + "<p>" + pokemon.types + "</p>")
-  }
-});
-
-Object.keys(pokemonRepository.getAll()).forEach(function(pokemon){
-  console.log(pokemon + ': ' + pokemonRepository.getAll()[pokemon] +'<br>');
-  document.write(pokemon + ': ' + pokemonRepository.getAll()[pokemon] +'<br>');
-});// array results in undefined
