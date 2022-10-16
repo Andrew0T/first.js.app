@@ -63,3 +63,14 @@ return {
   };
 
 })();
+
+// adding another pokemon to the Array
+pokemonRepository.add({ name: 'Kangaskhan',
+    height: 2.2, 
+   types: ['normal']
+
+  });
+
+pokemonRepository.getAll().forEach(function (pokemon) {
+  pokemonRepository.addListItem(pokemon);
+});
