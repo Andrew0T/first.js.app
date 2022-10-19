@@ -1,40 +1,21 @@
-let pokemonRepository = (function(){
+let pokemonRepository = (function () {
 
-  let pokemonList = [
-    { name: 'Zapdos',
-    height: 1.7,
-    types: ['electic', 'flying']
-  },
+  let pokemonList = []; // individual pokemons removed from array. the array now connected to pokeapi.co/api/v2/pokemon url
 
-  {
-    name: 'Seel',
-    height: 1.1,
-    types: ['ice', 'water']
-  },
+  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=1154';//apiUrl function created
 
-  {
-    name: 'Bulbasaur',
-    height: 0.7,
-    types: ['grass', 'poison']
+  function add(pokemon) {
+    if (typeof pokemon === 'object' && 'name' && 'detailsUrl' in pokemon); //'detailsUrl' added to add()
+    pokemonList.push(pokemon);
   }
 
-];
+  //returns complet pokemon list
 
-//add new pokemon to pokemonList
+  function getAll(pokemon) {
+    return pokemonList;
+  }
 
-function add(pokemon) {
-  if (typeof pokemon === 'object' && 'name' in pokemon);
-  pokemonList.push(pokemon);
-}
-
-
-function getAll() {
-  return pokemonList;
-}
-
-// addListItem function
-
-function addListItem(pokemon){
+  function addListItem(pokemon){
     let pokemonList = document.querySelector('.pokemon-list');
     let listpokemon = document.createElement('li');
     let button = document.createElement('button');
@@ -42,35 +23,65 @@ function addListItem(pokemon){
     button.classList.add('button-class');
     listpokemon.appendChild(button);
     pokemonList.appendChild(listpokemon);
-    button.addEventListener('click', function(event){ 
-      console.log(addEventListener); //event Listener Added
-      return showDetails(pokemon); // showDetails function added after event Listener.
+    button.addEventListener('click', function(event){
+      showDetails(pokemon); // showDetails function added after event Listener.
     });
-};
+  }
 
- // showDetails function added
+  // showDetails function changed to import details from loadDetails()
 
-function showDetails(pokemon){
-    let showDetails = document.querySelector('pokemonList');    
-    console.log(pokemonList);
-};  
+  function showDetails(pokemon){
+    loadDetails(pokemon).then(function(){
+      console.log(pokemon);
+    });
+  }
 
-return {
+  // LoadList () added which loads items from pokeapi.co/api/v2/pokemon/
+  function LoadList(item) {
+    return fetch(apiUrl).then(function (response) {
+      return response.json();
+    }).then(function (json) {
+      json.results.forEach(function (item) {
+        let pokemon = {
+          name: item.name,
+          detailsUrl: item.url
+        };
+        add(pokemon);
+      });
+    }).catch(function (e) {
+      console.error(e);
+    })
+  }
+
+  // loadDetails () added which loads items details from pokeapi.co/api/v2/pokemon/
+  function loadDetails(item) {
+    let url = item.detailsUrl;
+    return fetch(url).then(function (response) {
+      return response.json();
+    }).then(function (details) {
+      item.imageUrl = details.sprites.front_default;
+      item.height = details.height;
+      item.types = details.types;
+    }).catch(function (e) {
+      console.error(e);
+    });
+  }
+
+
+  return {
     add: add,
-    getAll: getAll, // (,) added 
-    addListItem: addListItem, // addListItem added 
-    showDetails: showDetails // showDetails added 
-  };
+    getAll: getAll,
+    addListItem: addListItem,
+    showDetails: showDetails,
+    LoadList: LoadList, // LoadList added
+    loadDetails: loadDetails// loadDetails Added
+  }
 
 })();
 
-// adding another pokemon to the Array
-pokemonRepository.add({ name: 'Kangaskhan',
-    height: 2.2, 
-   types: ['normal']
-
+// LoadList() line added
+pokemonRepository.LoadList().then(function() {
+  pokemonRepository.getAll().forEach(function(pokemon){
+    pokemonRepository.addListItem(pokemon);
   });
-
-pokemonRepository.getAll().forEach(function (pokemon) {
-  pokemonRepository.addListItem(pokemon);
 });
