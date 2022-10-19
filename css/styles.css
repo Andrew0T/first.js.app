@@ -5,12 +5,9 @@
   --hover-color: #ffffff;
   --active-color: #00ff00;
   --gridbackground-color: #f0f0f0;
-  --sunstart-color: #edc655;
-  --sunmiddle-color: #fcffad;
-  --sunend-color: #f76414;
   --secondary-button-color: #00aa00;
   --text-color: #000000;
-}
+} /*unused colors removed*/
 
 * {
   box-sizing: border-box;
@@ -30,8 +27,17 @@ body {
   color: var(--font-color);
 }
 
+/*Pokemon-list class style defined*/
  .pokemon-list {
   vertical-align: text-top;
+  list-style-type: none;
+  margin: 5px 1fr 1fr 1fr;
+ }
+
+/*Pokemon-list li style defined*/
+ .pokemon-list li{
+  display: inline-block;
+  margin-left: 5px;
  }
 
 /*Button details added*/
