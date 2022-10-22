@@ -12,7 +12,10 @@ Load some data from Pokémon API of 154 Pokémons. The user clicking on an named
 Technical Dependencies:
 
 .   HTML
+
 .   CSS
+
 .   JS
 
-Link: https://Andrew0T.github.io/first.js.app/
+
+Link:  https://andrew0t.github.io/first.js.app/
