@@ -53,8 +53,8 @@ h1 {
 .button-class {
   background-color: var(--background-color);
   border: none;
-  width: 100px;
-  height: 100px;
+  width: 110px;
+  height: 110px;
   color: var(--font-color);
   padding: 12px 12px;
   text-align: center;
@@ -94,8 +94,8 @@ h1 {
   box-sizing: border-box;
   background: var(--hover-color);
   padding: 15px;
-  width: 40%;
-  height: 40%;
+  width: 50%;
+  height: 50%;
   max-width: 700px;
   text-align: center;
 }
