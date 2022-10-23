@@ -18,7 +18,7 @@ let pokemonRepository = (function () {
     return pokemonList;
   }
 
-// fetch Pokemon list from pokeapi.co/api/v2/pokemon/
+  // fetch Pokemon list from pokeapi.co/api/v2/pokemon/
   function LoadList(item) {
     return fetch(apiUrl).then(function (response) {
       return response.json();
@@ -76,10 +76,10 @@ let pokemonRepository = (function () {
 
  function showModal(pokemon) {
     let modalContainer = document.querySelector('#modal-container');
-    
+
     let modal = document.createElement('div');
     modal.classList.add('modal');
-    
+  
     // Clear all existing modal content
     modalContainer.innerHTML = '';
   
@@ -129,6 +129,7 @@ window.addEventListener('keydown', (e) => {
     hideModal();  
   }
 });
+
 
   return {
     add: add,
