@@ -38,10 +38,12 @@ let pokemonRepository = (function () {
   // creates a button for the individual pokemon from pokemon-list
   function addListItem(pokemon){
     let pokemonList = document.querySelector('.list-group');
-    let listpokemon = document.createElement('list-group-item');
+    let listpokemon = document.createElement('group-list-item');
     let button = document.createElement('button');
     button.innerText = pokemon.name;
-    button.classList.add('button');
+    button.setAttribute('data-toggle', 'modal');
+    button.setAttribute('data-target', '.modal');
+    button.classList.add('btn','btn-primary','btn-lg','btn-block');
     listpokemon.appendChild(button);
     pokemonList.appendChild(listpokemon);
     button.addEventListener('click', function(event){
