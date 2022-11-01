@@ -17,5 +17,7 @@ Technical Dependencies:
 
 .   JS
 
+.   Bootstrap
+
 
 Link:  https://andrew0t.github.io/first.js.app/
