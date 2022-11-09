@@ -3,7 +3,7 @@ A Pokédex JavaScript App
 
 The brief is to build a small web application using only HTML, CSS and JavaScript code to load data from an external API/URL, which enables the viewing of data.
 
-This Application is a Pokémons Index app and displays a list of 154 Pokémon. 
+This Application is a Pokémons Index app and displays a list of 154 Pokémon.
 
 It offers the following Features:
 
@@ -17,7 +17,10 @@ Technical Dependencies:
 
 .   JS
 
+.   jQuery
+
 .   Bootstrap
 
+.   ESlint
 
 Link:  https://andrew0t.github.io/first.js.app/
