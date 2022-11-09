@@ -1,0 +1,32 @@
+:root {
+  --background-color: #77ddff;
+  --font-color: #006600;
+  --visited-color: #000000;
+  --hover-color: #ffffff;
+  --active-color: #00ff00;
+  --gridbackground-color: #f0f0f0;
+  --secondary-button-color: #00aa00;
+  --text-color: #000000;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 10px 10px;
+  padding: auto 10px;
+}
+
+body {
+  clear: both;
+  align-items: center;
+  text-align: center;
+  background-color: var(--background-color);
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--font-color);
+}
+
+.navbar {
+  margin: 5px;
+}
