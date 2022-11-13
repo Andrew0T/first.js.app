@@ -105,16 +105,28 @@ let pokemonRepository = (function () {
     modalBody.append(abilitiesElement);
   }
 
+<<<<<<< Updated upstream:src/scripts.js
   // add search function
   let seaRch = '#search';
     $(function(){
     $('#search').on('keyup', function() {
       let value = $(this).val().toLowerCase();
       $('.list-group').filter(function() {
+=======
+    let search = '#search';
+    $(function(){
+    $('#search').on('keyup', function() {
+      let value = $(this).val().toLowerCase();
+      $('#list-group').filter(function() {
+>>>>>>> Stashed changes:js/scripts.js
         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
        });
      });
    })
+<<<<<<< Updated upstream:src/scripts.js
+=======
+
+>>>>>>> Stashed changes:js/scripts.js
 
   return {
     add: add,
