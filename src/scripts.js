@@ -85,7 +85,7 @@ let pokemonRepository = (function () {
     let modalTitle = $('.modal-title');
     let modalBody = $('.modal-body');
 
-    // // Clear all existing modal content
+  // Clear all existing modal content
     modalTitle.empty();
     modalBody.empty();
 
@@ -104,6 +104,17 @@ let pokemonRepository = (function () {
     modalBody.append(typesElement);
     modalBody.append(abilitiesElement);
   }
+
+  // add search function
+  let seaRch = '#search';
+    $(function(){
+    $('#search').on('keyup', function() {
+      let value = $(this).val().toLowerCase();
+      $('.list-group').filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+       });
+     });
+   })
 
   return {
     add: add,
