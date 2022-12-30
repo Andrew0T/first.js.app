@@ -43,7 +43,7 @@ let pokemonRepository = (function () {
     button.innerHTML = pokemon.name;
     button.setAttribute('data-toggle', 'modal');
     button.setAttribute('data-target', '.modal');
-    button.classList.add('btn','btn-primary','btn-block');
+    button.classList.add('btn','btn-primary','button-class');
     listpokemon.appendChild(button);
     pokemonList.appendChild(listpokemon);
     button.addEventListener('click', function(){
@@ -85,7 +85,7 @@ let pokemonRepository = (function () {
     let modalTitle = $('.modal-title');
     let modalBody = $('.modal-body');
 
-  // Clear all existing modal content
+    // Clear all existing modal content
     modalTitle.empty();
     modalBody.empty();
 
@@ -104,17 +104,15 @@ let pokemonRepository = (function () {
     modalBody.append(typesElement);
     modalBody.append(abilitiesElement);
   }
-
-  // add search function
-  let seaRch = '#search';
-    $(function(){
-    $('#search').on('keyup', function() {
-      let value = $(this).val().toLowerCase();
-      $('.list-group').filter(function() {
-        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-       });
-     });
-   })
+    // Search function
+ let seaRch = $(document).ready(function(){
+         $('#input').on('keyup', function() {
+           let value = $(this).val().toLowerCase();
+           $('group-list-item').filter(function() {
+             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+          });
+         });
 
   return {
     add: add,
@@ -122,7 +120,8 @@ let pokemonRepository = (function () {
     addListItem: addListItem,
     showDetails: showDetails,
     loadList: loadList,
-    loadDetails: loadDetails
+    loadDetails: loadDetails,
+    seaRch: seaRch
   }
 
 })();
@@ -133,3 +132,4 @@ pokemonRepository.loadList().then(function() {
     pokemonRepository.addListItem(pokemon);
   });
 });
+
