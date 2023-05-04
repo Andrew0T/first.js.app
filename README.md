@@ -24,3 +24,4 @@ Technical Dependencies:
 .   ESlint
 
 Link:  https://andrew0t.github.io/first.js.app/
+https://github.com/Andrew0T/first.js.app/blob/main/img/pokemon-app-screenshot.png?raw=true
