@@ -25,4 +25,5 @@ Technical Dependencies:
 
 Link:  https://andrew0t.github.io/first.js.app/
 
-https://github.com/Andrew0T/first.js.app/blob/main/img/pokemon-app-screenshot.png?raw=true
+
+![pokemon-app-screenshot](https://user-images.githubusercontent.com/113891991/236197956-85ac5993-e266-42c2-aace-58e05a7019d8.png)
